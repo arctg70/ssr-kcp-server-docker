@@ -1,15 +1,19 @@
 FROM alpine:edge
-MAINTAINER yumin9822@gmail.com
+MAINTAINER Min Yu <yumin9822@gmail.com>
 
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories \
-    && apk add -U curl libsodium python \
-    && curl -sSL https://bootstrap.pypa.io/get-pip.py | python \
-    && pip install shadowsocks \
-    && apk del curl \
+RUN apk update \
+    && apk add python libsodium unzip wget \
     && rm -rf /var/cache/apk/*
+
+RUN mkdir /ssr \
+    && cd /ssr \
+    && wget --no-check-certificate https://github.com/breakwa11/shadowsocks/archive/manyuser.zip -O /tmp/manyuser.zip \
+    && unzip -d /tmp /tmp/manyuser.zip \
+    && mv /tmp/shadowsocks-manyuser/shadowsocks /ssr/shadowsocks \
+    && rm -rf /tmp/*
 
 ADD config.json /config.json
 
-EXPOSE 8388
+WORKDIR /ssr/shadowsocks
 
-ENTRYPOINT ["ssserver", "-c", "/config.json"]
+CMD python server.py -c /config.json
