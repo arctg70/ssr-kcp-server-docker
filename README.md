@@ -1,2 +1,2 @@
-# ss-alpine
-shadowsocks python docker on alpine
+# ssr-alpine
+shadowsocksR python docker on alpine
