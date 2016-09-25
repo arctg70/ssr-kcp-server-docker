@@ -16,4 +16,4 @@ ADD config.json /config.json
 
 WORKDIR /ssr/shadowsocks
 
-CMD python server.py -c /config.json
+CMD python server.py -c /config.json > /dev/null
