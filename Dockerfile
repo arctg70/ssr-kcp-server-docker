@@ -11,9 +11,9 @@ RUN mkdir /ssr \
     && unzip -d /tmp /tmp/manyuser.zip \
     && mv /tmp/shadowsocks-manyuser/shadowsocks /ssr/shadowsocks \
     && rm -rf /tmp/*
-    && echo -e $'8.8.8.8 53\n8.8.4.4 53' > /ssr/shadowsocks/dns.conf
 
 ADD config.json /config.json
+ADD dns.conf /ssr/shadowsocks/dns.conf
 
 WORKDIR /ssr/shadowsocks
 
