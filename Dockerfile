@@ -12,7 +12,7 @@ RUN mkdir /ssr \
     && mv /tmp/shadowsocks-manyuser/shadowsocks /ssr/shadowsocks \
     && rm -rf /tmp/*
 
-ENV server="0.0.0.0" server_ipv6="::" server_port=8080 local_address="172.0.0.1" local_port=1079 password="CTYDDDDDDBUG" timeout=120 udp_timeout=60 method="chacha20" protocol="auth_sha1_compatible" obfs="http_simple_compatible"
+ENV server="0.0.0.0" server_ipv6="::" server_port=8080 password="CTYDDDDDDBUG" method="chacha20" protocol="auth_sha1_compatible" obfs="http_simple_compatible"
 ADD config.json /config.json
 ADD dns.conf /ssr/shadowsocks/dns.conf
 
