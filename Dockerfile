@@ -13,7 +13,7 @@ RUN mkdir /ssr \
     && rm -rf /tmp/*
 
 ENV server="0.0.0.0" server_ipv6="::" server_port=8080 password="CTYDDDDDDBUG" method="chacha20" protocol="auth_sha1_compatible" obfs="http_simple_compatible"
-ADD config.json /config.json
+RUN echo "{"\"server\":\"$server\"","\"server_ipv6\":\"$server_ipv6\"","\"server_port\":\"$server_port\"","\"password\":\"$password\"","\"timeout\":120","\"udp_timeout\":60","\"method\":\"$method\"","\"protocol\":\"$protocol\"","\"obfs\":\"$obfs\"","\"dns_ipv6\":false","\"connect_verbose_info\":0","\"redirect\":\"\"","\"fast_open\":true"}" > /config.json
 ADD dns.conf /ssr/shadowsocks/dns.conf
 
 WORKDIR /ssr/shadowsocks
