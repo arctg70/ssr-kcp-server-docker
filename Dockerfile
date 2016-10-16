@@ -20,4 +20,4 @@ RUN chmod +x /ssr/shadowsocks/r.sh
 
 WORKDIR /ssr/shadowsocks
 
-CMD /bin.sh /ssr/shadowsocks/r.sh
+CMD /ssr/shadowsocks/r.sh
