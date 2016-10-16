@@ -18,4 +18,4 @@ ADD dns.conf /ssr/shadowsocks/dns.conf
 
 WORKDIR /ssr/shadowsocks
 
-CMD python server.py -c /config.json > /dev/null
+CMD ./run.sh
