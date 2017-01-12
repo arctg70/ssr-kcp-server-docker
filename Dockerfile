@@ -9,7 +9,7 @@ RUN mkdir /ssr \
     && cd /ssr \
     && wget --no-check-certificate https://github.com/breakwa11/shadowsocks/archive/manyuser.zip -O /tmp/manyuser.zip \
     && unzip -d /tmp /tmp/manyuser.zip \
-    && mv /tmp/shadowsocks-manyuser/shadowsocks /ssr/shadowsocks \
+    && mv /tmp/shadowsocksr-manyuser/shadowsocks /ssr/shadowsocks \
     && rm -rf /tmp/*
 
 
