@@ -14,8 +14,8 @@ RUN mkdir /ssr \
 
 
 COPY config.json /config.json
-ADD dns.conf /ssr/shadowsocks/dns.conf
-ADD r.sh /ssr/shadowsocks/r.sh
+COPY dns.conf /ssr/shadowsocks/dns.conf
+COPY r.sh /ssr/shadowsocks/r.sh
 RUN chmod +x /ssr/shadowsocks/r.sh
 
 WORKDIR /ssr/shadowsocks
