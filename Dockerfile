@@ -1,5 +1,7 @@
 FROM alpine:edge
 
+ENV KCP_VER 20161222
+
 RUN apk update \
     && apk add python libsodium unzip wget \
     && rm -rf /var/cache/apk/* \
@@ -25,8 +27,6 @@ RUN chmod +x /ssr/shadowsocks/r.sh
 
 WORKDIR /ssr/shadowsocks
 
-ENV KCP_VER 20161222
-    
 COPY supervisord.conf /etc/supervisord.conf
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
