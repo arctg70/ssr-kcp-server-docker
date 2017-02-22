@@ -1,5 +1,5 @@
-# ssr-alpine
-shadowsocksR python docker on alpine
+# ssr-kcp-server-docker based on alpine
+shadowsocksR python and kcptun docker on alpine
 #ENVs
 server
 
