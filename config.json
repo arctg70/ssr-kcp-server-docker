@@ -10,7 +10,7 @@
     "timeout": 120,
     "udp_timeout": 60,
     "method":"chacha20",
-    "protocol": "auth_sha1_v2",
+    "protocol": "auth_aes128_md5",
     "protocol_param": "",
     "obfs": "http_simple",
     "obfs_param": "",
