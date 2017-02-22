@@ -24,3 +24,6 @@ shadowsocksR python and kcptun docker on alpine
     "fast_open": true
 }
 
+# KCPTUN 
+/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 -crypt "salsa20" --mtu 1400 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
+
