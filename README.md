@@ -1,6 +1,9 @@
 # ssr-kcp-server-docker based on alpine
 shadowsocksR python and kcptun docker on alpine
 
+# usage
+docker run -d -p 29900:29900/udp -p 8989:8989 arctg70/ssr-kcp-server-docker
+
 # config.json
 {
     "server": "0.0.0.0",
