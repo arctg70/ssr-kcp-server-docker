@@ -28,5 +28,5 @@ docker run -d -p 29900:29900/udp -p 8989:8989 arctg70/ssr-kcp-server-docker
 }
 
 # KCPTUN 
-/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 -crypt "salsa20" --mtu 1400 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
+/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 -crypt "salsa20" --mtu 1350 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
 
