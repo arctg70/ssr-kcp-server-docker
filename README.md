@@ -2,7 +2,7 @@
 shadowsocksR python and kcptun docker on alpine
 
 # usage
-docker run -d -p 29900:29900/udp -p 8989:8989 arctg70/ssr-kcp-server-docker
+docker run -d -p 29900:29900/udp -p 8989:8989 -p 8999:8999 arctg70/ssr-kcp-server-docker
 
 # config.json
 {
@@ -11,8 +11,8 @@ docker run -d -p 29900:29900/udp -p 8989:8989 arctg70/ssr-kcp-server-docker
     "local_address": "127.0.0.1",
     "local_port": 1080,
     "port_password":{
-      "8989":"131415",
-      "8127":"131415"
+        "8989":{"protocol":"origin", "password":"131415", "obfs":"http_simple_compatible", "obfs_param":""},
+        "8999":{"protocol":"auth_aes128_md5", "password":"131415"}
     },
     "timeout": 120,
     "udp_timeout": 60,
