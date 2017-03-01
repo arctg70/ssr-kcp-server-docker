@@ -31,7 +31,7 @@ COPY supervisord.conf /etc/supervisord.conf
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
-EXPOSE 8989/tcp 29900/udp
+EXPOSE 8989/tcp 8999/tcp 29900/udp
 ENTRYPOINT ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
 # CMD /ssr/shadowsocks/r.sh
