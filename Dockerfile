@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV KCP_VER 20170221
+ENV KCP_VER 20170310
 
 RUN apk update \
     && apk add python libsodium unzip wget \
@@ -22,8 +22,6 @@ RUN apk update \
 
 COPY config.json /config.json
 COPY dns.conf /ssr/shadowsocks/dns.conf
-COPY r.sh /ssr/shadowsocks/r.sh
-RUN chmod +x /ssr/shadowsocks/r.sh
 
 WORKDIR /ssr/shadowsocks
 
@@ -34,4 +32,3 @@ RUN chmod +x /start.sh
 EXPOSE 8989/tcp 8999/tcp 29900/udp
 ENTRYPOINT ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
-# CMD /ssr/shadowsocks/r.sh
