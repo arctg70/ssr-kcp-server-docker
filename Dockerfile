@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV KCP_VER 20170310
+ENV KCP_VER 20170322
 
 RUN apk update \
     && apk add python libsodium unzip wget \
