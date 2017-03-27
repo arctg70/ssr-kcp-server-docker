@@ -2,7 +2,7 @@
 shadowsocksR python and kcptun docker on alpine
 
 # usage
-docker run -d -p 29900:29900/udp -p 8989:8989 -p 8999:8999 arctg70/ssr-kcp-server-docker
+docker run --name ssr-kcp -d -p 29900:29900/udp -p 8989:8989 -p 8999:8999 arctg70/ssr-kcp-server-docker
 
 # config.json
 {
