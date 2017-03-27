@@ -6,6 +6,7 @@ docker run -d -p 29900:29900/udp -p 8989:8989 -p 8999:8999 arctg70/ssr-kcp-serve
 
 # config.json
 {
+
     "server": "0.0.0.0",
     "server_ipv6": "::",
     "local_address": "127.0.0.1",
