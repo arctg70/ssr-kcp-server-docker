@@ -4,7 +4,7 @@ shadowsocksR python and kcptun docker on alpine
 # usage
 docker run --name ssr-kcp -d -p 29900:29900/udp -p 8989:8989 -p 8999:8999 arctg70/ssr-kcp-server-docker
 
-ATTENTION PLEASE if you want to use kcptun you must set your shadowsocks client as the same as 8989 port parameter
+ATTENTION PLEASE : if you want to use kcptun you must set your shadowsocks client as the same as 8989 port parameter
 
 # config.json
 {
