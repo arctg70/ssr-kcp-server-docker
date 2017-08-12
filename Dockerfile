@@ -15,7 +15,7 @@ RUN apk update \
     && apk add --no-cache supervisor \
     && mkdir /ssr \
     && cd /ssr \
-    && wget --no-check-certificate https://github.com/arctg70/shadowsocks/archive/manyuser.zip -O /tmp/manyuser.zip \
+    && wget --no-check-certificate https://github.com/arctg70/shadowsocksr/archive/manyuser.zip -O /tmp/manyuser.zip \
     && unzip -d /tmp /tmp/manyuser.zip \
     && mv /tmp/shadowsocksr-manyuser/shadowsocks /ssr/shadowsocks \
     && rm -rf /tmp/*
