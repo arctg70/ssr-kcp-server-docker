@@ -31,8 +31,7 @@ RUN chmod +x /start.sh
 
 EXPOSE 8989/tcp 8999/tcp 29900/udp
 
-RUN cd / \
-    && /start.sh
+CMD ["/start.sh"]
 
 # ENTRYPOINT ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
