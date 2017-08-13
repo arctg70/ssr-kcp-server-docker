@@ -20,7 +20,7 @@ RUN apk update \
     && mv /tmp/shadowsocksr-master/shadowsocks /ssr/shadowsocks \
     && rm -rf /tmp/*
 
-COPY config.json /config.json
+# COPY config.json /config.json
 COPY dns.conf /ssr/shadowsocks/dns.conf
 
 WORKDIR /ssr/shadowsocks
@@ -30,5 +30,9 @@ ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
 EXPOSE 8989/tcp 8999/tcp 29900/udp
-ENTRYPOINT ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
+
+RUN cd / \
+    && /start.sh
+
+# ENTRYPOINT ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
