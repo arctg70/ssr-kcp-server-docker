@@ -1,10 +1,6 @@
 #!/bin/sh
 
-<<<<<<< HEAD
 export KCPTUN_SS_CONF="/kcptun_ss_config.json"
-=======
-#export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
->>>>>>> 9b795b5e9894306b5729bc2a79bc54825ef68caa
 export SS_CONF="/config.json"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-0.0.0.0}                     #"server": "0.0.0.0",
