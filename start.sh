@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
+export KCPTUN_SS_CONF="/kcptun_ss_config.json"
 export SS_CONF="/config.json"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-0.0.0.0}                     #"server": "0.0.0.0",
@@ -20,6 +20,15 @@ export SS_TIMEOUT=${SS_TIMEOUT:-600}                                 #"timeout":
 export SS_DNS_ADDR=${SS_DNS_ADDR:-8.8.8.8}                           #-d "8.8.8.8",
 export SS_UDP=${SS_UDP:-faulse}                                        #-u support,
 export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
+
+# ======= KCPTUN CONFIG ======
+export KCPTUN_SS_LISTEN=${KCPTUN_SS_LISTEN:-29900}                   #"listen": ":29900"
+export KCPTUN_KEY=${KCPTUN_KEY:-password}                            #"key": "password",
+export KCPTUN_CRYPT=${KCPTUN_CRYPT:-aes}                             #"crypt": "aes",
+export KCPTUN_MODE=${KCPTUN_MODE:-fast2}                             #"mode": "fast2",
+export KCPTUN_MTU=${KCPTUN_MTU:-1350}                                #"mtu": 1350,
+export KCPTUN_SNDWND=${KCPTUN_SNDWND:-512}                           #"sndwnd": 512,
+export KCPTUN_RCVWND=${KCPTUN_RCVWND:-512}                           #"rcvwnd": 512,
 
 [ ! -f ${SS_CONF} ] && cat > ${SS_CONF}<<-EOF
 {
@@ -42,6 +51,20 @@ export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-ope
     "connect_verbose_info": 0,
     "redirect": "",
     "fast_open": ${SS_FAST_OPEN}
+}
+EOF
+
+[ ! -f ${KCPTUN_SS_CONF} ] && cat > ${KCPTUN_SS_CONF}<<-EOF
+{
+    "listen": ":${KCPTUN_SS_LISTEN}",
+    "target": "127.0.0.1:${SS_SERVER_PORT1}",
+    "key": "${KCPTUN_KEY}",
+    "crypt": "${KCPTUN_CRYPT}",
+    "mode": "${KCPTUN_MODE}",
+    "mtu": ${KCPTUN_MTU},
+    "sndwnd": ${KCPTUN_SNDWND},
+    "rcvwnd": ${KCPTUN_RCVWND},
+    "nocomp": false
 }
 EOF
 
