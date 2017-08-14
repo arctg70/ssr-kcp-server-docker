@@ -1,6 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 export KCPTUN_SS_CONF="/kcptun_ss_config.json"
+=======
+#export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
+>>>>>>> 9b795b5e9894306b5729bc2a79bc54825ef68caa
 export SS_CONF="/config.json"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-0.0.0.0}                     #"server": "0.0.0.0",
@@ -14,11 +18,11 @@ export SS_PROTOCOL1=${SS_PROTOCOL1:-origin}                          #"password"
 export SS_PROTOCOL2=${SS_PROTOCOL2:-auth_aes128_md5}                          #"password":"password",
 
 export SS_OBFS=${SS_OBFS:-http_simple}                          #"password":"password",
-export SS_PASSWORD=${SS_PASSWORD:-131415}                          #"password":"password",
+#export SS_PASSWORD=${SS_PASSWORD:-131415}                          #"password":"password",
 export SS_METHOD=${SS_METHOD:-chacha20}                           #"method":"aes-256-gcm",
-export SS_TIMEOUT=${SS_TIMEOUT:-600}                                 #"timeout":600,
+export SS_TIMEOUT=${SS_TIMEOUT:-120}                                 #"timeout":600,
 export SS_DNS_ADDR=${SS_DNS_ADDR:-8.8.8.8}                           #-d "8.8.8.8",
-export SS_UDP=${SS_UDP:-faulse}                                        #-u support,
+#export SS_UDP=${SS_UDP:-faulse}                                        #-u support,
 export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
 
 # ======= KCPTUN CONFIG ======
@@ -40,7 +44,7 @@ export KCPTUN_RCVWND=${KCPTUN_RCVWND:-512}                           #"rcvwnd": 
         "${SS_SERVER_PORT1}":{"protocol":"${SS_PROTOCOL1}", "password":"${SS_PASSWORD1}", "obfs":"http_simple_compatible", "obfs_param":""},
         "${SS_SERVER_PORT2}":{"protocol":"${SS_PROTOCOL2}", "password":"${SS_PASSWORD2}"}
     },
-    "timeout": 120,
+    "timeout":${SS_TIMEOUT} ,
     "udp_timeout": 60,
     "method":"${SS_METHOD}",
     "protocol": "${SS_PROTOCOL}",
