@@ -2,6 +2,7 @@
 
 export KCPTUN_SS_CONF="/kcptun_ss_config.json"
 export SS_CONF="/config.json"
+export SUPERVISORD_CONF="/supervisord.conf"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-0.0.0.0}                     #"server": "0.0.0.0",
 export SS_SERVER_PORT1=${SS_SERVER_PORT1:-8989}                     #"server_port": 8388,
@@ -67,5 +68,17 @@ EOF
     "nocomp": false
 }
 EOF
+[ ! -f ${SUPERVISORD_CONF} ] && cat > ${SUPERVISORD_CONF}<<-EOF
+[supervisord]
+nodaemon=true
 
-/usr/bin/supervisord -c /etc/supervisord.conf
+[program:ssr-server]
+command=/usr/bin/python /ssr/shadowsocks/server.py -c ${SS_CONF} > /dev/null
+
+[program:kcptun]
+#command=/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 -crypt "salsa20" --mtu 1350 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
+command=/opt/kcptun/server_linux_amd64 -c ${KCPTUN_SS_CONF}
+EOF
+
+/usr/bin/supervisord -c ${SUPERVISORD_CONF} 
+
