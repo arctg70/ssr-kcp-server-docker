@@ -25,7 +25,7 @@ COPY dns.conf /ssr/shadowsocks/dns.conf
 
 WORKDIR /ssr/shadowsocks
 
-COPY supervisord.conf /etc/supervisord.conf
+#COPY supervisord.conf /etc/supervisord.conf
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
