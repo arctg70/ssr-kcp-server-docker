@@ -80,5 +80,5 @@ command=/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 --crypt "sals
 
 EOF
 
-/usr/bin/supervisord -c ${SUPERVISORD_CONF} 
-
+#/usr/bin/supervisord -c ${SUPERVISORD_CONF} 
+/usr/bin/supervisord -c /etc/supervisord.conf 
