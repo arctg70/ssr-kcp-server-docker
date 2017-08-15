@@ -77,7 +77,7 @@ command=/usr/bin/python /ssr/shadowsocks/server.py -c ${SS_CONF} > /dev/null
 
 [program:kcptun]
 #command=/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 --crypt "salsa20" --mtu 1350 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
-command=/opt/kcptun/server_linux_amd64 -c /kcptun_ss_config.json
+command=/opt/kcptun/server_linux_amd64 -c ${KCPTUN_SS_CONF}
 EOF
 
 /usr/bin/supervisord -c ${SUPERVISORD_CONF} 
