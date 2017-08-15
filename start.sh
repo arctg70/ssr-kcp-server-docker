@@ -59,7 +59,7 @@ EOF
 {
     "listen": ":${KCPTUN_SS_LISTEN}",
     "target": "127.0.0.1:${SS_SERVER_PORT1}",
-    "key": "${KCPTUN_KEY}",
+#    "key": "${KCPTUN_KEY}",
     "crypt": "${KCPTUN_CRYPT}",
     "mode": "${KCPTUN_MODE}",
     "mtu": ${KCPTUN_MTU},
