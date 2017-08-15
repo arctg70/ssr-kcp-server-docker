@@ -76,9 +76,8 @@ nodaemon=true
 command=/usr/bin/python /ssr/shadowsocks/server.py -c ${SS_CONF} > /dev/null
 
 [program:kcptun]
-#command=/opt/kcptun/server_linux_amd64 -l ":${KCPTUN_SS_LISTEN}" -t "127.0.0.1:${SS_SERVER_PORT1}" -crypt "${KCPTUN_CRYPT}" --mtu ${KCPTUN_MTU} --sndwnd ${KCPTUN_SNDWND} --rcvwnd ${KCPTUN_RCVWND --mode "${KCPTUN_MODE}"
-#command=/opt/kcptun/server_linux_amd64 -c ${KCPTUN_SS_CONF}
 command=/opt/kcptun/server_linux_amd64 -l :29900 -t 127.0.0.1:8989 -crypt "salsa20" --mtu 1350 --sndwnd 1024 --rcvwnd 1024 --mode "fast2"
+
 EOF
 
 /usr/bin/supervisord -c ${SUPERVISORD_CONF} 
